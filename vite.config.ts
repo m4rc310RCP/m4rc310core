@@ -15,7 +15,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@core": path.resolve(__dirname, rootPath, `@core`),
-			"@presentation": path.resolve(__dirname, rootPath, `@core`),
+			"@presentation": path.resolve(__dirname, rootPath, `@presentation`),
 		},
 	},
 	build: {
