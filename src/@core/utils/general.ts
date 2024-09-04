@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-//import crypto from 'crypto';
+import { AES, enc } from 'crypto-js';
 
 /******************************************************************************/
 type UpdateValueFunction<T> = <K extends keyof T>(
@@ -19,7 +19,19 @@ export const createUpdateValue = <T>(
 };
 // /******************************************************************************/
 // const algorithm = 'aes-256-cbc';
-// const secretKey = crypto.randomBytes(32);
+const secretKey = 'Escol@01';
+
+export const encryptText = (value: string) => {
+	return AES.encrypt(value, secretKey);
+}
+
+export const dencryptText = (encryptedValue: string) => {
+	const bytes = AES.decrypt(encryptedValue, secretKey);
+	return bytes.toString(enc.Utf8);
+}
+
+
+
 // const iv = crypto.randomBytes(16);
 
 // export const encrypt = (text: string) => {
