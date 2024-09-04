@@ -13,6 +13,9 @@
 		"paths": {
 			"@core/*": [
 				"./src/@core/*"
+			],
+			"@presentation/*": [
+				"./src/@presentation/*"
 			]
 		},
 		/* Bundler mode */
