@@ -2,12 +2,13 @@ import { createContext, FC, PropsWithChildren, useCallback, useEffect, useState 
 import { createUpdateValue } from '@core/utils/general';
 
 export interface IServerApolloValues {
-	changeToken?: (token: string) => void;
+	changeToken: (token: string) => void;
 	token: string;
 }
 
 const defaultValue: IServerApolloValues = {
-	token: ""
+	token: "",
+	changeToken: () => { }
 };
 
 const ServerApolloContext = createContext<IServerApolloValues>(defaultValue);
