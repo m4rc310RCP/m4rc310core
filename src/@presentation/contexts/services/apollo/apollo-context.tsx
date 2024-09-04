@@ -8,7 +8,7 @@ export interface IServerApolloValues {
 
 const defaultValue: IServerApolloValues = {
 	token: "",
-	changeToken: () => { }
+	changeToken: (token: string) => { console.log(token) }
 };
 
 const ServerApolloContext = createContext<IServerApolloValues>(defaultValue);
