@@ -22,7 +22,7 @@ const ServerApolloProvider: FC<PropsWithChildren> = ({ children }) => {
 
 	useEffect(() => {
 		update('changeToken', changeToken);
-	}, [update, changeToken]);
+	}, []);
 
 
 	return <ServerApolloContext.Provider value={value}>{children}</ServerApolloContext.Provider>;
