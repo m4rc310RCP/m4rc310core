@@ -1,4 +1,4 @@
-import { createContext, FC, PropsWithChildren, useState } from "react";
+import { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from "react";
 import { createUpdateValue } from '@core/utils/general';
 
 export interface IServerApolloValues {
@@ -16,10 +16,15 @@ const ServerApolloProvider: FC<PropsWithChildren> = ({ children }) => {
 	const [value, setValue] = useState<IServerApolloValues>(defaultValue);
 	const update = createUpdateValue(setValue);
 
-	const changeToken = (token: string) => {
+	const changeToken = useCallback((token: string) => {
 		update('token', token);
-	}
-	update('changeToken', changeToken);
+	}, [update]);
+
+	useEffect(() => {
+		update('changeToken', changeToken);
+	}, [update, changeToken]);
+
+
 	return <ServerApolloContext.Provider value={value}>{children}</ServerApolloContext.Provider>;
 };
 
