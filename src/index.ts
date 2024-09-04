@@ -1,1 +1,1 @@
-export { createUpdateValue } from '@core/utils/general';
+export * from '@core/utils/general';
